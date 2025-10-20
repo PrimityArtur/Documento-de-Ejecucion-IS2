@@ -1,0 +1,42 @@
+\renewcommand{\arraystretch}{1.3} % para mejor espaciado vertical
+\begin{longtable}{|c|p{2cm}|p{9cm}|c|}
+\caption{Nombre de la tabla} \\
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prioridad} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- continuación desde la página anterior}} \\
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prioridad} \\
+\hline
+\endhead
+
+\hline \multicolumn{4}{r}{{Continúa en la siguiente página}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+%%%%%%%%%%%%%%%%%%%
+RNF1 & Seguridad &
+El sistema debe implementar medidas de seguridad que garanticen la confidencialidad e integridad de la información en procesos como registro, inicio de sesión, gestión de contraseñas, manejo de saldo y administración de usuarios. En particular, debe cumplir con lo siguiente:
+
+\textbf{- Control de acceso a través de roles de usuario:} El sistema debe emplear un esquema de roles (administrador/cliente) que limite el acceso a funcionalidades o información según el tipo de usuario.
+
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RNF2 & Usabilidad &
+El sistema debe proporcionar una experiencia de uso intuitiva, coherente y agradable para todos los usuarios (clientes y administradores). Para ello, debe cumplir con los siguientes criterios:
+
+\textbf{- Diseño consistente:} El diseño debe ser homogéneo en todas las pantallas (botones, menús, tipografía, colores).
+
+\textbf{- Manejo de errores:} Cuando se produzcan errores o excepciones, el sistema debe proporcionar mensajes que expliquen la causa de manera clara.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+\end{longtable}

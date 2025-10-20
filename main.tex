@@ -1,0 +1,133 @@
+\documentclass[11pt]{report}
+% Tablas e imagenes en espaniol
+
+\input{Anexos/paquetes.tex}
+\input{Anexos/Links.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Configuración del documento 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Profundidad de secciones en el índice = enumeracion de titulos nivel 3
+\setcounter{secnumdepth}{3}  % Numerar hasta subsubsection
+\setcounter{tocdepth}{3}     % Mostrar en índice hasta subsubsection
+
+% Descomentar para draft
+% \usepackage{draftwatermark}
+% \SetWatermarkLightness{0.9}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Primer página
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titulo
+\newcommand{\customtitle}{
+    \begin{titlepage}
+    \begin{center}
+        \Huge \textbf{Documento de ejecución} \\[0.5em]
+        \LARGE \textbf{``QuickContentMedia''} \\[2.5em]
+
+        \renewcommand{\arraystretch}{1.1}
+        {\small
+        \begin{tabularx}{\textwidth}{|c|c|c|X|}
+            \hline
+                \rowcolor{gray!30}
+                \textbf{Versión} & \textbf{Fecha} & \textbf{Descripción} & \textbf{Elaboradores} \\
+            \hline
+                \multirow{5}{*}{1.0} & 
+                \multirow{5}{*}{10/04/2025} & 
+                \multirow{5}{*}{Primera versión} & Condori Gonzales, Jean \\
+                     &  &  & Espinoza Villanueva, Alexis \\
+                     &  &  & Murillo Castillo, Alexander \\
+                     &  &  & Salas Sotillo, Santiago  \\
+                     &  &  & Salazar Zuñiga, Camila \\
+            \hline
+                \multirow{5}{*}{2.0} & 
+                \multirow{5}{*}{27/04/2025} & 
+                \multirow{5}{*}{Segunda versión} & Condori Gonzales, Jean \\
+                     &  &  & Espinoza Villanueva, Alexis \\
+                     &  &  & Murillo Castillo, Alexander \\
+                     &  &  & Salas Sotillo, Santiago  \\
+                     &  &  & Salazar Zuñiga, Camila \\
+            \hline
+                \multirow{5}{*}{3.0} & 
+                \multirow{5}{*}{17/05/2025} & 
+                \multirow{5}{*}{Tercera versión} & Condori Gonzales, Jean \\
+                     &  &  & Espinoza Villanueva, Alexis \\
+                     &  &  & Murillo Castillo, Alexander \\
+                     &  &  & Salas Sotillo, Santiago  \\
+                     &  &  & Salazar Zuñiga, Camila \\
+            \hline
+                \multirow{5}{*}{4.0} & 
+                \multirow{5}{*}{24/05/2025} & 
+                \multirow{5}{*}{Cuarta versión} & Condori Gonzales, Jean \\
+                     &  &  & Espinoza Villanueva, Alexis \\
+                     &  &  & Murillo Castillo, Alexander \\
+                     &  &  & Salas Sotillo, Santiago  \\
+                     &  &  & Salazar Zuñiga, Camila \\
+            \hline
+                \multirow{5}{*}{5.0} & 
+                \multirow{5}{*}{01/06/2025} & 
+                \multirow{5}{*}{Quinta versión} & Condori Gonzales, Jean \\
+                     &  &  & Espinoza Villanueva, Alexis \\
+                     &  &  & Murillo Castillo, Alexander \\
+                     &  &  & Salas Sotillo, Santiago  \\
+                     &  &  & Salazar Zuñiga, Camila \\
+            \hline
+                \multirow{5}{*}{6.0} & 
+                \multirow{5}{*}{22/06/2025} & 
+                \multirow{5}{*}{Sexta versión} & Espinoza Villanueva, Alexis \\
+                     &  &  & Salas Sotillo, Santiago  \\
+                     &  &  & Salazar Zuñiga, Camila \\
+            \hline
+        \end{tabularx}
+        }
+
+        \vfill %al final de pagina
+        \raggedright
+        \large \textbf{Cliente:} \\
+        - Guillermo Enrique Calderón Ruiz
+    \end{center}
+    \end{titlepage}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Configuracion páginas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%numeracion de pagina
+\cfoot{\thepage}
+% \rfoot{\thepage}
+
+\addtolength{\voffset}{-2cm}
+\addtolength{\headsep}{0.5cm}
+\addtolength{\textheight}{1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\customtitle
+
+\tableofcontents
+
+\input{Capitulos/1_Introduccion}
+
+\input{Capitulos/2_SeccionAdministrativa}
+
+\input{Capitulos/3_Analisis}
+
+\input{Capitulos/4_Disenio}
+
+\input{Capitulos/5_Desarrollo}
+
+\input{Capitulos/6_Testing}
+
+\input{Capitulos/7_Despliegue}
+
+\input{Capitulos/8_Mantenimiento}
+
+
+
+\nocite{*}
+\printbibliography
+
+\end{document}

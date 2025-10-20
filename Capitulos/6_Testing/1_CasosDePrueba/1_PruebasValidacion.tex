@@ -1,0 +1,72 @@
+\subsection{Casos de prueba de validación}
+A continuación se presentan los casos de prueba de validación construidos.  
+
+\begin{table}[H]
+\centering
+\caption{Caso de prueba \textbf{CPV-001}}
+\label{tab:cpv001Saldo}
+\begin{tabular}{|p{4cm}|p{10.5cm}|}
+\hline
+\textbf{Campo} & \textbf{Descripción} \\ \hline
+\textbf{Código} & CPV-001 \\ \hline
+\textbf{Diseño de prueba} & PV-001 \\ \hline
+\textbf{Valor a ingresar} & 150 (entero no negativo) \\ \hline
+\textbf{Ejecutores} & Camila Salazar – Tester junior \\ \hline
+\textbf{Usuario en la prueba} & Guillermo Calderón \\ \hline
+\textbf{Pantalla inicial} & UIAdministrar-
+Cliente (MK-038) \\ \hline
+\textbf{Pasos ejecutados} &
+\begin{enumerate}
+  \item Clic en \textit{Gestionar saldo} del cliente \#02.
+  \item En la ventana emergente introduce el valor \textbf{150}.
+  \item Clic en \textit{Confirmar}.
+\end{enumerate} \\ \hline
+\textbf{Resultado esperado} &
+\begin{itemize}
+  \item El sistema acepta el valor sin mostrar errores.
+  \item El saldo del cliente \#02 se actualiza a “150” en la tabla de la interfaz.
+\end{itemize} \\ \hline
+\textbf{Resultado obtenido} &  \\ \hline
+\textbf{Estado} &  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Caso de prueba \textbf{CPV-002}}
+\label{tab:cpv003AgregarContenido}
+\begin{tabular}{|p{4cm}|p{10.5cm}|}
+\hline
+\textbf{Campo} & \textbf{Descripción} \\ \hline
+\textbf{Código} & CPV-002 \\ \hline
+\textbf{Diseño de prueba} & PV-002 \\ \hline
+\textbf{Valores a ingresar} &
+\begin{itemize}
+  \item Tipo de contenido: \textbf{Imagen}
+  \item Nombre: \texttt{Chrome}
+  \item Descripción: \texttt{Google}
+  \item Categoría: \texttt{Software}
+  \item Autor: \texttt{Pedro}
+  \item Precio: \texttt{15}
+  \item Archivo: \texttt{google\_chrome.jpg}
+\end{itemize} \\ \hline
+\textbf{Ejecutores} & Camila Salazar – Tester junior \\ \hline
+\textbf{Usuario en la prueba} & Guillermo Calderón – Administrador \\ \hline
+\textbf{Pantalla inicial} & \textbf{UIAdministrarContenido (MK-030)} \\ \hline
+\textbf{Pasos ejecutados} &
+\begin{enumerate}
+  \item Clic en \textit{Agregar contenido}.
+  \item En la ventana emergente seleccionar \textbf{Imagen}.
+  \item Completar los campos con los valores listados arriba.
+  \item Pulsar el icono de subir archivo, elegir \texttt{google\_chrome.jpg} y aceptar.
+  \item Clic en el botón \textit{Agregar}.
+\end{enumerate} \\ \hline
+\textbf{Resultado esperado} &
+\begin{itemize}
+  \item El sistema acepta los datos sin error.
+  \item El nuevo registro \texttt{Chrome} se muestra en la tabla de contenidos con tipo “Imagen”.
+\end{itemize} \\ \hline
+\textbf{Resultado obtenido} &  \\ \hline
+\textbf{Estado} &  \\ \hline
+\end{tabular}
+\end{table}

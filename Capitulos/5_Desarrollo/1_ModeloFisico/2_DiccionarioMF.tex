@@ -1,0 +1,319 @@
+\subsection{Diccionario del Modelo Físico}
+A continuación, se presenta el diccionario de datos correspondiente al modelo físico del sistema \textbf{QuickContentMedia}.
+
+%--------------------------------------------------------------
+%  DICCIONARIO DE DATOS – MODELO FÍSICO (PostgreSQL)
+%  QuickContentMedia · HEAP · B-tree
+%--------------------------------------------------------------
+\renewcommand{\arraystretch}{1.25}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{USUARIO}}\label{pf_usuario}\\ \hline
+\textbf{Atributo} & \textbf{Tipo de dato} & \textbf{Restricciones} & \textbf{Bytes} \\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo de dato} & \textbf{Restricciones} & \textbf{Bytes} \\ \hline
+\endhead
+id\_usuario & int4        & PK, NN & 4  \\ \hline
+username    & varchar(50) & NN, U  & 51 \\ \hline
+nombre      & varchar(50) & NN     & 51 \\ \hline
+apellido    & varchar(50) & NN     & 51 \\ \hline
+contrasena  & varchar(50) & NN     & 51 \\ \hline
+\textbf{Total} &            &        & \textbf{208} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_usuario),  U(username)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP} \\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{ADMINISTRADOR}}\label{pf_administrador}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_usuario & int4 & PK, FK→USUARIO.id\_usuario, NN & 4 \\ \hline
+acceso      & bool & NN                              & 1 \\ \hline
+\textbf{Total} &    &                                & \textbf{5}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_usuario)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+\newpage
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{CLIENTE}}\label{pf_cliente}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_usuario & int4 & PK, FK→USUARIO.id\_usuario, NN & 4 \\ \hline
+saldo       & int4 & NN                             & 4 \\ \hline
+excliente   & bool & NN                             & 1 \\ \hline
+\textbf{Total} &    &                               & \textbf{9}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_usuario)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{4cm}|}
+\caption{Tabla: \textbf{TIPO\_ARCHIVO}}\label{pf_tipo_archivo}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_tipo\_archivo & int4         & PK, NN & 4  \\ \hline
+extension         & varchar(10)  & NN     & 11 \\ \hline
+formato           & varchar(50)  & NN     & 51 \\ \hline
+mime\_type        & varchar(100) & NN     & 101\\ \hline
+\textbf{Total} &                 &        & \textbf{167}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_tipo\_archivo)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{4cm}|}
+\caption{Tabla: \textbf{CATEGORIA}}\label{pf_categoria}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_categoria       & int4        & PK, NN                      & 4  \\ \hline
+nombre              & varchar(50) & NN                          & 51 \\ \hline
+id\_categoria\_padre & int4        & FK→CATEGORIA.id\_categoria  & 4  \\ \hline
+\textbf{Total} &                 &                             & \textbf{59}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_categoria)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{7cm}|p{3cm}|}
+\caption{Tabla: \textbf{CONTENIDO}}\label{pf_contenido}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_contenido    & int4         & PK, NN                                   & 4   \\ \hline
+formato          & varchar(20)  & NN                                       & 21  \\ \hline
+nombre           & varchar(100) & NN                                       & 101 \\ \hline
+autor            & varchar(100) & NN                                       & 101 \\ \hline
+precio           & int4         & NN                                       & 4   \\ \hline
+descripcion      & text         & NN                                       & var \\ \hline
+tamano\_archivo  & float8       & NN                                       & 8   \\ \hline
+archivo          & bytea        & NN                                       & var \\ \hline
+id\_tipo\_archivo & int4        & FK→TIPO\_ARCHIVO.id\_tipo\_archivo, NN   & 4   \\ \hline
+id\_promocion    & int4         & FK→PROMOCION.id\_promocion               & 4   \\ \hline
+id\_categoria    & int4         & FK→CATEGORIA.id\_categoria, NN           & 4   \\ \hline
+\textbf{Total} &               &                                          & \textbf{251}\\ \hline
+% --- celda “Índices” con cada entrada en línea propia ---------------
+\multicolumn{4}{|p{\dimexpr\textwidth-2\tabcolsep}|}{
+  \textbf{Índices:}
+  \begin{tabular}[t]{@{}l@{}}
+    PK(id\_contenido)\\
+    idx\_contenido\_tipo (id\_tipo\_archivo)\\
+    idx\_contenido\_categoria (id\_categoria)\\
+    idx\_contenido\_promocion (id\_promocion)
+  \end{tabular}
+}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{PROMOCION}}\label{pf_promocion}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_promocion & int4         & PK, NN & 4  \\ \hline
+descuento     & int4         & NN     & 4  \\ \hline
+fecha\_inicio & date         & NN     & 4  \\ \hline
+fecha\_fin    & date         & NN     & 4  \\ \hline
+nombre        & varchar(100) & NN     & 101\\ \hline
+\textbf{Total} &             &        & \textbf{117}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_promocion)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{COMPRA}}\label{pf_compra}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_compra     & int4      & PK, NN                         & 4  \\ \hline
+fecha\_y\_hora & timestamp & NN                             & 8  \\ \hline
+id\_usuario    & int4      & FK→USUARIO.id\_usuario, NN     & 4  \\ \hline
+id\_contenido  & int4      & FK→CONTENIDO.id\_contenido, NN & 4  \\ \hline
+\textbf{Total} &           &                                & \textbf{20}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_compra), idx\_compra\_usuario(id\_usuario)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{REGALO}}\label{pf_regalo}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_regalo          & int4 & PK, NN                         & 4  \\ \hline
+abierto             & bool & NN                             & 1  \\ \hline
+id\_usuario\_envia  & int4 & FK→USUARIO.id\_usuario, NN     & 4  \\ \hline
+id\_usuario\_recibe & int4 & FK→CLIENTE.id\_usuario, NN     & 4  \\ \hline
+id\_contenido       & int4 & FK→CONTENIDO.id\_contenido, NN & 4  \\ \hline
+id\_compra          & int4 & FK→COMPRA.id\_compra           & 4  \\ \hline
+\textbf{Total} &      &                                   & \textbf{21}\\ \hline
+% --- celda “Índices” con cada entrada en línea propia ---------------
+\multicolumn{4}{|p{\dimexpr\textwidth-2\tabcolsep}|}{
+  \textbf{Índices:}
+  \begin{tabular}[t]{@{}l@{}}
+    PK(id\_regalo)\\
+    idx\_regalo\_usuario\_recibe (id\_usuario\_recibe)\\
+    idx\_regalo\_contenido (id\_contenido)
+  \end{tabular}
+}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+\newpage
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{CARRITO}}\label{pf_carrito}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_carrito         & int4 & PK, NN                     & 4 \\ \hline
+descuento\_aplicado & int4 &                             & 4 \\ \hline
+id\_usuario         & int4 & FK→USUARIO.id\_usuario, NN & 4 \\ \hline
+\textbf{Total} &      &                                & \textbf{12}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_carrito)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla puente: \textbf{CONTENIDO\_CARRITO}}\label{pf_cont_carrito}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_carrito   & int4 & PK\*, FK→CARRITO.id\_carrito, NN     & 4 \\ \hline
+id\_contenido & int4 & PK\*, FK→CONTENIDO.id\_contenido, NN & 4 \\ \hline
+cantidad      & int4 & NN                                   & 4 \\ \hline
+\textbf{Total} &      &                                     & \textbf{12}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_carrito,id\_contenido)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{7cm}|p{2cm}|}
+\caption{Tabla: \textbf{DESCARGA}}\label{pf_descarga}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_descarga   & int4      & PK, NN                         & 4  \\ \hline
+fecha\_y\_hora & timestamp & NN                             & 8  \\ \hline
+id\_contenido  & int4      & FK→CONTENIDO.id\_contenido, NN & 4  \\ \hline
+id\_usuario    & int4      & FK→USUARIO.id\_usuario, NN     & 4  \\ \hline
+\textbf{Total} &           &                                & \textbf{20}\\ \hline
+% --- celda “Índices” con cada entrada en línea propia ---------------
+\multicolumn{4}{|p{\dimexpr\textwidth-2\tabcolsep}|}{
+  \textbf{Índices:}
+  \begin{tabular}[t]{@{}l@{}}
+    PK(id\_descarga)\\
+    idx\_descarga\_usuario(id\_usuario)\\
+    idx\_descarga\_contenido (id\_contenido)
+  \end{tabular}
+}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{VALORACION}}\label{pf_valoracion}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_valoracion & int4      & PK, NN                         & 4 \\ \hline
+fecha          & timestamp & NN                             & 8 \\ \hline
+puntuacion     & int4      & NN                             & 4 \\ \hline
+id\_usuario    & int4      & FK→USUARIO.id\_usuario, NN     & 4 \\ \hline
+id\_contenido  & int4      & FK→CONTENIDO.id\_contenido, NN & 4 \\ \hline
+\textbf{Total} &           &                                & \textbf{24}\\ \hline
+% --- celda “Índices” con cada entrada en línea propia ---------------
+\multicolumn{4}{|p{\dimexpr\textwidth-2\tabcolsep}|}{
+  \textbf{Índices:}
+  \begin{tabular}[t]{@{}l@{}}
+    PK(id\_valoracion)\\
+    idx\_valoracion\_usuario(id\_usuario)\\
+    idx\_valoracion\_contenido (id\_contenido)
+  \end{tabular}
+}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{RANKING}}\label{pf_ranking}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_ranking        & int4        & PK, NN & 4  \\ \hline
+fecha              & date        & NN     & 4  \\ \hline
+tipo               & varchar(20) & NN     & 21 \\ \hline
+posicion\_actual   & int4        & NN     & 4  \\ \hline
+posicion\_anterior & int4        &        & 4  \\ \hline
+\textbf{Total} &                 &        & \textbf{37}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_ranking)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+\newpage
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla: \textbf{RANKING\_CONTENIDO}}\label{pf_rank_cont}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_ranking   & int4 & PK\*, FK→RANKING.id\_ranking,   NN & 4 \\ \hline
+id\_contenido & int4 & PK\*, FK→CONTENIDO.id\_contenido, NN & 4 \\ \hline
+\textbf{Total} &      &                                     & \textbf{8}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_ranking,id\_contenido)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}
+
+%--------------------------------------------------------------
+\begin{longtable}{|l|l|p{5cm}|p{5cm}|}
+\caption{Tabla puente: \textbf{RANKING\_CLIENTE}}\label{pf_rank_cliente}\\ \hline
+\textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endfirsthead
+\hline \textbf{Atributo} & \textbf{Tipo} & \textbf{Restricciones} & \textbf{Bytes}\\ \hline
+\endhead
+id\_ranking & int4 & PK\*, FK→RANKING.id\_ranking, NN & 4 \\ \hline
+id\_usuario & int4 & PK\*, FK→USUARIO.id\_usuario, NN & 4 \\ \hline
+\textbf{Total} &    &                                 & \textbf{8}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Índices}: PK(id\_ranking,id\_usuario)} \\ \hline
+\multicolumn{4}{|l|}{\textbf{Método de índice}: B-tree}\\ \hline
+\multicolumn{4}{|l|}{\textbf{Tipo de fichero}: HEAP}\\ \hline
+\end{longtable}

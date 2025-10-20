@@ -1,0 +1,47 @@
+\subsection{Diseño de casos de prueba}
+Los diseños de casos de prueba se codifican con la letra P seguida de una letra que identifica el tipo de prueba (U para unitaria, I para integración, V para validación y S para sistema) y un número único secuencial. 
+
+%%%%%%%%%%%%%%%%%%% TABLA %%%%%%%%%%%%%%%%%%% 
+\renewcommand{\arraystretch}{1.3} % para mejor espaciado vertical
+\begin{longtable}{|c|p{10cm}|}
+\caption{Codificación de Diseños de casos de prueba} \\
+\hline
+\textbf{Código} & \textbf{Nombre} \\
+\hline
+\endfirsthead
+
+\multicolumn{2}{c}%
+{{\bfseries \tablename\ \thetable{} -- continuación desde la página anterior}} \\
+\hline
+\textbf{Código} & \textbf{Diseño de caso de prueba} \\
+\hline
+\endhead
+
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+%%%%%%%%%%%%%%%%%%%v
+PU-001 & (Unitaria) Verificación de agregar contenido al carrito de compras \\
+\hline
+PU-002 & (Unitaria) Verificación de actualización de saldo de cliente \\
+\hline
+PI-001 & (Integración) Integración durante una compra con descuento \\
+\hline
+PI-002 & (Integración) Integración al visualizar el historial de descargas de un cliente \\
+\hline
+PV-001 & (Validación) Validación del ingreso de saldo a un cliente desde el panel del
+administrador \\
+\hline
+PV-002 & (Validación) Validación del ingreso y verificación del usuario destinatario
+antes del envío de regalo \\
+\hline
+PS-001 & (Sistema) Validación de compatibilidad de interfaz y funcionalidad en
+múltiples navegadores \\
+\hline
+PS-002 & (Sistema) Validación de restricciones de acceso a funciones administrati-
+vas desde cuentas no autorizadas \\
+\hline
+\end{longtable}

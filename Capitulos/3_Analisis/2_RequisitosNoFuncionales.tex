@@ -1,0 +1,79 @@
+\section{Requisitos No Funcionales}
+La Tabla \ref{tab:rnf} muestra los requisitos no funcionales del sistema \textbf{QuickContentMedia}.
+
+\renewcommand{\arraystretch}{1.3} % para mejor espaciado vertical
+\begin{longtable}{|P{1cm}|p{2cm}|p{9cm}|c|}
+\caption{Requisitos funcionales del sistema QuickContentMedia}
+\label{tab:rnf}\\
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prioridad} \\
+\hline
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- continuación desde la página anterior}} \\
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prioridad} \\
+\hline
+\endhead
+
+\hline \multicolumn{4}{r}{{Continúa en la siguiente página}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+%%%%%%%%%%%%%%%%%%%
+RNF-001 & Seguridad &
+El sistema debe implementar medidas de seguridad que garanticen la confidencialidad e integridad de la información en procesos como registro, inicio de sesión, gestión de contraseñas, manejo de saldo y administración de usuarios. En particular, debe cumplir con lo siguiente:
+
+\textbf{- Control de acceso a través de roles de usuario:} El sistema debe emplear un esquema de roles (administrador/cliente) que limite el acceso a funcionalidades o información según el tipo de usuario.
+
+\textbf{- Políticas de contraseñas:} Exigir la contraseña actual para realizar el cambio a una nueva.
+
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RNF-002 & Usabilidad &
+El sistema debe proporcionar una experiencia de uso intuitiva, coherente y agradable para todos los usuarios (clientes y administradores). Para ello, debe cumplir con los siguientes criterios:
+
+\textbf{- Diseño consistente:} El diseño debe ser homogéneo en todas las pantallas (botones, menús, tipografía, colores).
+
+\textbf{- Organización clara:} Los contenidos deben presentarse de forma estructurada (imagen, video y sonido).
+
+\textbf{- Facilidad de aprendizaje:} El sistema debe ser sencillo de entender y debe permitir a un usuario nuevo realizar con facilidad las acciones básicas en menos de 2 minutos (registro, inicio de sesión, búsqueda de contenido, compra de contenido, descarga de contenido).
+
+\textbf{- Manejo de errores:} Cuando se produzcan errores o excepciones, el sistema debe proporcionar mensajes que expliquen la causa de manera clara.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RNF-003 & Portabilidad &
+El sistema debe funcionar correctamente en diversos entornos para garantizar que los usuarios puedan utilizar la aplicación web independientemente del navegador o sistema operativo que usen.
+
+\textbf{- Soporte mínimo:} El sitio web debe ser funcional en versiones actuales de navegadores modernos (Google Chrome, Mozilla Firefox, Microsoft Edge, Opera y Safari).
+
+\textbf{- Sistemas operativos compatibles:} El sitio web debe ser accesible desde Windows, MacOS y Linux a través de navegadores compatibles.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RNF-004 & Escalabilidad &
+El sistema debe ser capaz de adaptarse al crecimiento en cuanto a la cantidad de usuarios concurrentes, el volumen de contenidos y el número de categorías, manteniendo tiempos de respuesta eficientes y estables.
+
+\textbf{- Rango estimado:} El sistema debe ser capaz de manejar un incremento de 5 a 20 usuarios simultáneos, de 10 a 50 contenidos y de 10 a 100 categorías sin disminuir su rendimiento de manera significativa.
+
+\textbf{- Velocidad de consultas:} Las operaciones como búsqueda, listado de contenidos y acceso a contenidos deben ejecutarse en un tiempo medio entre 10 ms y 1 s.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RNF-005 & Mantenibilidad &
+El sistema debe estar diseñado de forma que facilite su mantenimiento, permitiendo que las actualizaciones o correcciones se completen en un máximo de 3 días. Para ello debe cumplir con lo siguiente:
+
+\textbf{- Comentarios:} Mantener comentarios en el código que describan la funcionalidad de cada sección.
+
+\textbf{- Control de versiones:} Usar un sistema de control de versiones (git) que permita registrar los cambios y revertir modificaciones en caso de errores.
+& Alta \\
+\end{longtable}

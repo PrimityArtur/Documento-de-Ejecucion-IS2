@@ -1,0 +1,261 @@
+\section{Requisitos Funcionales}
+La Tabla \ref{tab:rf} muestra los requisitos funcionales del sistema \textbf{QuickContentMedia}.
+%%%%%%%%%%%%%%%%%%% CONFIGURACION INICIAL %%%%%%%%%%%%%%%%%%%
+%cabeza de la tabla
+\renewcommand{\arraystretch}{1.3} % para mejor espaciado vertical
+\begin{longtable}{|P{1cm}|p{2cm}|p{9cm}|c|}
+\caption{Requisitos funcionales del sistema QuickContentMedia}
+\label{tab:rf}\\
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prioridad} \\
+\hline
+\endfirsthead
+
+%cuando se corta la tabla (estructura que se mantiene)
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- continuación desde la página anterior }} \\
+\hline
+\textbf{Código} & \textbf{Nombre} & \textbf{Descripción} & \textbf{Prioridad} \\
+\hline
+\endhead
+
+%pie de la tabla
+\hline \multicolumn{4}{r}{{Continúa en la siguiente página}} \\
+\endfoot
+
+\hline
+\endlastfoot
+
+%%%%%%%%%%%%%%%%%%% DATOS %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%
+RF-001 & Ingreso al portal &
+\textbf{- Registro y autenticación:} El sistema debe permitir la creación de cuentas de cliente mediante un formulario que recoja los siguientes datos de Nombre, Apellido, Username y Contraseña.
+Adicionalmente, se debe incluir un proceso de validación para comprobar si el username ya está registrado.
+
+\textbf{- Inicio de sesión:} Debe ofrecer un mecanismo de acceso mediante username y contraseña. En función del rol del usuario, se realizará la redirección correspondiente: si es administrador, se lo enviará al portal de administración; si es cliente, al portal de descarga de contenido.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-002 & Visualización de contenido &
+\textbf{- Pantalla principal:} El sistema debe ofrecer una pantalla principal que agrupe el contenido en secciones (columnas) diferenciadas por tipo de contenido (Videos, Imágenes, Sonidos). En cada sección, los elementos se mostrarán en tarjetas con la siguiente información:
+\begin{itemize}
+    \item Nombre.
+    \item Descripción breve.
+    \item Autor.
+    \item Categoría.
+    \item Precio actual y precio anterior si aplica descuento.
+    \item Ícono que represente el tipo de contenido (se puede usar un ícono genérico como un botón de play o una nota).
+\end{itemize}
+
+Además, cada tarjeta debe tener botones para realizar las siguientes acciones:
+\begin{itemize}
+    \item \textbf{Ver los detalles del contenido:} Seleccionar el nombre del contenido permite al usuario ver los detalles del contenido. El sistema debe mostrar una pantalla en la que se muestre toda la información del contenido:
+    \begin{itemize}
+        \item Nombre
+        \item Descripción breve
+        \item Autor
+        \item Categoría
+        \item Precio actual y precio anterior si aplica descuento
+        \item Extensión del archivo
+        \item Tamaño del archivo
+        \item Mime-type asociado
+    \end{itemize}
+    \item \textbf{Agregar al carrito de compras:} Un botón que permita al usuario añadir el contenido a su carrito de compras.
+    \item \textbf{Ver las notificaciones de regalo:} Permite al usuario ver notificaciones si es que recibió  regalos. El sistema debe mostrar una ventana emergente para descargar el o los regalos.
+\end{itemize}
+
+& Alta \\
+\hline
+
+RF-002 & Visualización de contenido &
+\textbf{- Pantalla de promociones:} El sistema debe ofrecer una pantalla de promociones que agrupe el contenido de manera similar a la pantalla principal, pero que solo muestre los contenidos que se encuentren en promoción.
+
+\textbf{- Búsqueda de contenido:} En la pantalla principal y en la pantalla de promociones, el sistema debe permitir la búsqueda y filtrado de contenido por autor y categoría.
+
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-003 & Configuración de cuenta &
+\textbf{- Perfil:} El sistema debe ofrecer una pantalla para mostrar el perfil del cliente, donde pueda visualizar la siguiente información relacionada a su cuenta:
+\begin{itemize}
+    \item Nombre y apellido.
+    \item Saldo actual.
+    \item Username.
+\end{itemize}
+
+\textbf{- Historial de compras:} El sistema debe permitir al usuario visualizar un listado de todos los contenidos adquiridos, mostrando la siguiente información de cada contenido:
+\begin{itemize}
+    \item Nombre.
+    \item Autor.
+    \item Formato (imagen, video, sonido).
+    \item Precio.
+\end{itemize}
+
+\textbf{- Cambio de contraseña:} El sistema debe permitir a los clientes modificar su contraseña, verificando primero la contraseña actual antes de reemplazarla por la nueva proporcionada.
+
+\textbf{- Eliminación de cuenta:} El sistema debe permitir a los clientes solicitar la eliminación de sus cuentas, previa verificación de que no registren saldo disponible. Una vez cumplida esta condición, la cuenta será desactivada y su estado cambiará a “excliente”, conservando su información histórica en el sistema.
+& Media \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-004 & Recarga de saldo &
+El sistema debe permitir al usuario recargar su saldo a través de un QR de una billetera electrónica. El Administrador recibe el pago y recarga el saldo al cliente.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-005 & Carrito de compras y compra de contenido &
+\textbf{- Carrito de compras:} El sistema debe ofrecer una pantalla para el carrito de compras y permitir al cliente eliminar contenidos que fueron agregados, ver el precio individual y el total, y comprar o regalar los productos de su carrito.
+
+\textbf{- Aplicar descuento:} El sistema debe calcular la cantidad de descuentos aplicables (1 por cada S/30 acumulados) y permitir al usuario seleccionar a qué contenidos aplicarlos.
+
+\textbf{- Regalar contenidos:} El sistema debe solicitar al cliente el username del cliente al cual desea regalar los contenidos de su carrito. El sistema debe verificar que el username otorgado esté vinculado a una cuenta activa existente para proceder al pago.
+
+\textbf{- Pago:} El pago de los contenidos se realiza únicamente usando el saldo del cliente. Antes de realizar el pago, el sistema debe mostrar una pantalla de confirmación con el total de la compra.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-006 & Gestión de contenido adquirido &
+\textbf{- Visualización de contenido adquirido:} El sistema debe ofrecer una pantalla para que el cliente pueda visualizar los contenidos que adquirió (por compra u obtenidos como regalo). Los contenidos deben estar agrupados en secciones (columnas) diferenciadas por tipo (Videos, Imágenes, Sonidos). En cada sección, los elementos se mostrarán en tarjetas con la siguiente información:
+\begin{itemize}
+    \item Nombre
+    \item Autor
+    \item Ícono que represente el tipo de contenido (se puede usar un ícono genérico como un botón de play o una nota).
+    \item Calificación (si fue otorgada)
+\end{itemize}
+
+\textbf{- Descarga de contenido:} Cada tarjeta de contenido deberá incluir un botón que permita al cliente descargar el contenido de forma inmediata y directa.
+
+\textbf{- Calificación de contenido:} Cada tarjeta de contenido deberá ofrecer una opción para que el cliente asigne una calificación de 1 a 10, la cual solo podrá realizarse una única vez por contenido.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-007 & Rankings &
+\textbf{- Ranking de contenidos:} El sistema debe ofrecer una pantalla en la que se muestre un listado de los contenidos más descargados y más valorados semanalmente. Debe mostrar información relevante de cada contenido y su ranking anterior.
+
+\textbf{- Ranking de clientes:} El sistema debe ofrecer una pantalla en la que se muestre un listado de los clientes que más contenido descargaron semestralmente. Debe mostrar información relevante de cada cliente y su ranking anterior.
+& Media \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-008 & Gestión de clientes &
+\textbf{- Visualizar clientes registrados:} El sistema debe permitir al administrador visualizar un listado de los clientes registrados con la siguiente información:
+\begin{itemize}
+    \item Código
+    \item Nombre y apellido
+    \item Username asociado
+    \item Saldo actual
+\end{itemize}
+
+\textbf{- Búsqueda de clientes:} El sistema debe permitir al administrador buscar clientes por su código o su nombre.
+
+\textbf{- Modificar saldo:} El sistema debe permitir al administrador ajustar el saldo de un cliente.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-009 & Gestión de promociones &
+\textbf{- Visualizar promociones activas:} El sistema debe permitir al administrador visualizar un listado de las promociones activas con la siguiente información:
+\begin{itemize}
+    \item Código
+    \item Descripción
+    \item Fecha de inicio y fecha de fin
+    \item Porcentaje de descuento
+    \item Contenidos incluidos
+\end{itemize}
+
+\textbf{- Búsqueda de promociones:} El sistema debe permitir al administrador buscar promociones por su código.
+
+& Alta \\
+\hline
+
+%%%%%%%
+RF-009 & Gestión de promociones &
+\textbf{- Agregar promoción:} El sistema debe permitir al administrador agregar promociones brindando la siguiente información:
+\begin{itemize}
+    \item Porcentaje de descuento
+    \item Descripción
+    \item Código de los contenidos incluidos
+    \item Fecha de inicio y fecha de fin
+\end{itemize}
+El sistema debe verificar que los contenidos incluidos no se encuentren en más de una promoción activa.
+
+\textbf{- Editar promoción:} El sistema debe permitir al administrador editar la información relacionada a una promoción activa. La información que el administrador puede modificar es la siguiente:
+\begin{itemize}
+    \item Porcentaje de descuento
+    \item Descripción
+    \item Agregar contenidos
+    \item Fecha de inicio y fecha de fin
+\end{itemize}
+El sistema debe verificar que los contenidos incluidos no se encuentren en más de una promoción activa.
+
+\textbf{- Eliminar promoción:} El sistema debe permitir al administrador eliminar una promoción activa, mostrando previamente una pantalla de confirmación para prevenir eliminaciones accidentales.
+& Alta \\
+\hline
+
+%%%%%%%%%%%%%%%%%%%
+RF-010 & Gestión de contenidos &
+\textbf{- Visualizar contenidos:} El sistema debe permitir al administrador visualizar un listado de los contenidos, mostrando la siguiente información:
+\begin{itemize}
+    \item Código
+    \item Nombre
+    \item Autor
+    \item Calificación promedio
+    \item Formato (imagen, video o sonido)
+    \item Categoría
+    \item Precio
+\end{itemize}
+
+& Alta \\
+\hline
+%%%%%
+RF-010 & Gestión de contenidos &
+\textbf{- Búsqueda de contenido:} El sistema debe permitir al administrador buscar contenidos por su código o nombre.
+
+\textbf{- Agregar contenido:} El sistema debe permitir al administrador agregar contenidos, brindando la siguiente información:
+\begin{itemize}
+    \item Nombre
+    \item Descripción
+    \item Categoría
+    \item Autor
+    \item Precio
+\end{itemize}
+Además, el administrador debe cargar el archivo y el sistema debe identificar y completar la siguiente información:
+\begin{itemize}
+    \item Tamaño
+    \item Extensión
+    \item Mime-type asociado
+\end{itemize}
+
+\textbf{- Editar contenido:} El sistema debe permitir al administrador editar la información relacionada a un contenido. La información que el administrador puede modificar es la siguiente:
+\begin{itemize}
+    \item Nombre
+    \item Descripción
+    \item Categoría
+    \item Autor
+    \item Precio
+\end{itemize}
+Además, el administrador debe cargar un nuevo archivo y el sistema debe identificar y completar la siguiente información:
+\begin{itemize}
+    \item Tamaño
+    \item Extensión
+    \item Mime-type asociado
+\end{itemize}
+
+\textbf{- Eliminar contenido:} El sistema debe permitir al administrador eliminar un contenido, solicitando una confirmación previa para prevenir eliminaciones accidentales.
+& Alta \\
+\hline
+%%%%%%%%%%%%%%%%%%%
+RF-011 & Gestión de categorías &
+\textbf{- Visualizar categorías:} El sistema debe permitir al administrador consultar la lista completa de categorías existentes y navegar por su estructura jerárquica.
+
+\textbf{- Agregar categorías y subcategorías:} El administrador podrá crear nuevas categorías y subcategorías sin límite de profundidad.
+
+\textbf{- Renombrar categorías:} El sistema debe permitir renombrar tanto categorías como subcategorías, manteniendo la coherencia de la estructura y sin afectar la navegación de los contenidos asociados.
+& Alta \\
+
+\end{longtable}

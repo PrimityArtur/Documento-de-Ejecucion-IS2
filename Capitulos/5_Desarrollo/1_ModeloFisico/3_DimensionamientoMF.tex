@@ -1,0 +1,67 @@
+\subsection{Proyección de crecimiento}
+A continuación se realizará una proyección de crecimiento de la base de datos de \textbf{QuickContentMedia} con el objetivo de planificar el aumento del almacenamiento para mantener la operatividad del sistema.
+
+\paragraph*{Supuestos iniciales}
+
+\begin{itemize}
+  \item \textbf{Usuarios registrados}: 20  
+        (\textbf{18 clientes} + \textbf{2 administradores}).
+  \item \textbf{Contenidos publicados}: 300 archivos multimedia.
+  \item \textbf{Actividad estimada} en el primer mes  
+        (lineal respecto al n.º de usuarios/cont .):
+        \begin{itemize}
+          \item Descargas: 900
+          \item Valoraciones: 300
+          \item Compras: 150
+          \item Regalos: 30
+        \end{itemize}
+  \item \textbf{Tamaño medio de un archivo multimedia}:  
+        60 \% imágenes (5 MiB), 30 \% audio (10 MiB), 10 \% vídeo (50 MiB). Esto daría una media ponderada de aproximadamente 14MiB.
+  \item \textbf{Crecimiento estimado}: $15\%$ mensual
+        (nuevos usuarios, contenidos y registros de actividad).
+  \item \textbf{Volumen de almacenamiento inicial}:  
+        disco SSD de \textbf{500 GB}.
+\end{itemize}
+
+La tabla \ref{tab:tam-inicial} estima el espacio ocupado en las condiciones iniciales supuestas.
+
+\begin{longtable}{|l|r|}
+\caption{Estimación de espacio ocupado al mes 0}\label{tab:tam-inicial}\\\hline
+\textbf{Tabla / datos} & \textbf{Espacio}\\\hline
+Metadatos (todas las tablas) & $\approx$1 MB\\
+Ficheros \textbf{CONTENIDO} (300 × 14 MiB) & 4 200 MB\\\hline
+\textbf{TOTAL BD + archivos} & \textbf{≃ 4.2 GB}\\\hline
+\end{longtable}
+
+
+Sean  
+$S_{0}=4.2\;\text{GB}$ el tamaño inicial y  
+$S(n)=S_{0}\,(1.15)^{n}$ el tamaño tras $n$ meses.
+\newpage
+\begin{table}[htbp]
+\centering
+\caption{Proyección de ocupación del volumen de 500 GB con un crecimiento del 15 \% mensual}
+\label{tab:proyeccion500GB}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Mes $n$} & \textbf{$S(n)$ (GB)} & \textbf{\% de 500 GB} \\ \hline
+0  & 4.2   & 0.8 \%  \\ \hline
+12 & 4.2 $\times$ 1.15$^{12}$ = 23.3 & 4.7 \%  \\ \hline
+24 & 129.9 & 26.0 \% \\ \hline
+30 & 260.9 & 52.2 \% \\ \hline
+33 & 331.4 & 66.3 \% \\ \hline
+34 & 381.1 & 76.2 \% \\ \hline
+35 & 438.2 & 87.6 \% \\ \hline
+\textbf{36} & \textbf{504.0} & \textbf{100.8 \%} \\ \hline
+\end{tabular}
+\end{table}
+
+Con la información de la tabla \ref{tab:proyeccion500GB} se pueden llegar a las siguientes conclusiones:
+\begin{itemize}
+  \item Con un disco de \textbf{500 GB}, el umbral del 100 \% se alcanzaría
+        alrededor del \textbf{mes 36} (tres años) suponiendo un crecimiento
+        del 15 \% mensual.
+  \item Para conservar un margen operativo del 20 \%,
+        la ampliación del almacenamiento debería planificarse
+        hacia el \textbf{mes 34} (2 años y 10 meses).
+\end{itemize}

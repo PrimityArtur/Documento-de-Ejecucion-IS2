@@ -1,0 +1,30 @@
+%--------------------------------------------------------------
+\subsection{Copias de seguridad}
+
+Para realizar las copias de seguridad de la base de datos del sistema \textbf{QuickContentMedia} se realizarán las siguuientes acciones:
+
+\begin{enumerate}
+  \item \textbf{Copia completa semanal} (domingo 02:00)  
+        \texttt{pg\_dumpall --format=custom}  
+  \item \textbf{Copia semanal diferencial de archivos multimedia} (rsync)  
+        (miércoles 02:00) en el directorio \texttt{/backups/media}.
+  \item \textbf{Sincronización en la nube} una vez por semana, tras la
+        copia completa, con \texttt{rclone} a un bucket S3.  
+  \item \textbf{Retención}  
+        \begin{itemize}
+          \item Últimas 4 copias completas locales: 4 semanas.  
+          \item Copias en nube: 3 meses.  
+        \end{itemize}
+\end{enumerate}
+La tabla \ref{tab:bkp_small} resume el calendario de los backups a realizarse.
+\begin{table}[htbp]
+\centering
+\caption{Calendario resumido de backups}\label{tab:bkp_small}
+\begin{tabular}{|l|c|c|l|}
+\hline
+\textbf{Componente} & \textbf{Tipo} & \textbf{Frecuencia} & \textbf{Herramienta} \\ \hline
+Base de datos & Completa & Semanal (dom) & pg\_dumpall –Fc \\ \hline
+Multimedia    & Diferencial & Semanal (mié) & rsync --link-dest \\ \hline
+Off-site      & Sincronización & Semanal (dom) & rclone a S3 \\ \hline
+\end{tabular}
+\end{table}

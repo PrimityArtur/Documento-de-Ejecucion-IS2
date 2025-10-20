@@ -1,0 +1,342 @@
+\subsection{Diccionario de entidades}
+
+El diccionario de entidades está compuesto por el nombre de la entidad, su descripción, sus atributos y sus tipos. 
+
+% ==== Entidad USUARIO ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Usuario}
+\label{tab:diccionarioUsuario} \\ \hline
+\textbf{Nombre:} & Usuario \\ \hline
+\textbf{Descripción:} & 
+Entidad que representa a cualquier persona con credenciales para iniciar sesión en el portal \textbf{QuickContentMedia}.  
+Sirve como super-tipo de \textbf{Cliente} y \textbf{Administrador}. \\ \hline
+\endfirsthead
+
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+username   & Identificador único de inicio de sesión.  
+Tipo: \textit{string}. \\ \hline
+contrasena & Contraseña cifrada asociada al usuario.  
+Tipo: \textit{string}. \\ \hline
+nombre     & Nombre de pila.  
+Tipo: \textit{string}. \\ \hline
+apellido   & Apellidos completos.  
+Tipo: \textit{string}. \\ \hline
+\end{longtable}
+
+% ==== Entidad CLIENTE ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Cliente}
+\label{tab:diccionarioCliente} \\ \hline
+\textbf{Nombre:} & Cliente \\ \hline
+\textbf{Descripción:} & 
+Sub-tipo de \textbf{Usuario} que interactúa como consumidor: compra, descarga, califica contenidos y participa en rankings. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+saldo      & Saldo disponible para compras.  
+Tipo: \textit{Integer}. \\ \hline
+excliente  & Indica si la cuenta se encuentra cerrada (pasa a ex-cliente).  
+Tipo: \textit{boolean}. \\ \hline
+\end{longtable}
+
+% ==== Entidad ADMINISTRADOR ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Administrador}
+\label{tab:diccionarioAdministrador} \\ \hline
+\textbf{Nombre:} & Administrador \\ \hline
+\textbf{Descripción:} & 
+Sub-tipo de \textbf{Usuario} con privilegios de gestión: alta/baja contenidos, creación de promociones, recarga de saldo y administración de categorías. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+acceso & Nivel o clave de acceso al módulo de administración.  
+Tipo: \textit{boolean}. \\ \hline
+\end{longtable}
+
+% ==== Entidad CONTENIDO ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Contenido}
+\label{tab:diccionarioContenido} \\ \hline
+\textbf{Nombre:} & Contenido \\ \hline
+\textbf{Descripción:} & 
+Archivo multimedia que el portal ofrece para descarga (imágenes, sonidos o videos) junto a sus metadatos de catalogación. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+nombre          & Título descriptivo del contenido.  
+Tipo: \textit{string}. \\ \hline
+autor           & Autor o creador del contenido.  
+Tipo: \textit{string}. \\ \hline
+descripcion     & Resumen o descripción ampliada.  
+Tipo: \textit{string}. \\ \hline
+precio          & Precio de venta en la moneda definida por el sistema.  
+Tipo: \textit{integer}. \\ \hline
+tamano\_archivo & Peso del archivo en bytes o MB.  
+Tipo: \textit{double}. \\ \hline
+archivo         & Datos binarios del fichero.  
+Tipo: \textit{binary}. \\ \hline
+\end{longtable}
+
+% ==== Entidad TIPO_ARCHIVO ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Tipo\_Archivo}
+\label{tab:diccionarioTipoArchivo} \\ \hline
+\textbf{Nombre:} & Tipo\_Archivo \\ \hline
+\textbf{Descripción:} & 
+Catálogo de extensiones y metainformación técnica de los contenidos. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+extension  & Extensión física (JPG, MP3, AVI, …).  
+Tipo: \textit{string}. \\ \hline
+mime\_type & Tipo MIME oficial (image/jpeg, audio/mpeg, …).  
+Tipo: \textit{string}. \\ \hline
+formato    & Categoría general (imagen, música, video).  
+Tipo: \textit{string}. \\ \hline
+\end{longtable}
+
+% ==== Entidad CATEGORIA ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Categoría}
+\label{tab:diccionarioCategoria} \\ \hline
+\textbf{Nombre:} & Categoría \\ \hline
+\textbf{Descripción:} & 
+Etiqueta dentro del árbol jerárquico que agrupa contenidos de temática similar.  Puede anidarse sin límite de profundidad. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+nombre & Nombre de la categoría.  
+Tipo: \textit{string}. \\ \hline
+\end{longtable}
+
+% ==== Entidad PROMOCION ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Promoción}
+\label{tab:diccionarioPromocion} \\ \hline
+\textbf{Nombre:} & Promoción \\ \hline
+\textbf{Descripción:} & 
+Descuento temporal aplicado a uno o varios contenidos. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+nombre       & Nombre identificador de la promoción.  
+Tipo: \textit{string}. \\ \hline
+descuento    & Porcentaje de descuento (0–100).  
+Tipo: \textit{integer}. \\ \hline
+fecha\_inicio & Fecha de inicio de la vigencia.  
+Tipo: \textit{date}. \\ \hline
+fecha\_fin   & Fecha de término de la vigencia.  
+Tipo: \textit{date}. \\ \hline
+\end{longtable}
+
+% ==== Entidad REGALO ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Regalo}
+\label{tab:diccionarioRegalo} \\ \hline
+\textbf{Nombre:} & Regalo \\ \hline
+\textbf{Descripción:} & 
+Representa el envío de uno o más contenidos de un cliente a otro como presente. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+abierto & Indica si el destinatario ya abrió el regalo.  
+Tipo: \textit{boolean}. \\ \hline
+\end{longtable}
+
+% ==== Entidad CARRITO ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Carrito}
+\label{tab:diccionarioCarrito} \\ \hline
+\textbf{Nombre:} & Carrito \\ \hline
+\textbf{Descripción:} & 
+Agrupa contenidos antes de realizar el pago. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+descuento\_aplicado & Porcentaje total de descuento obtenido por promociones vigentes.  
+Tipo: \textit{integer}. \\ \hline
+\end{longtable}
+
+% ==== Entidad COMPRA ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Compra}
+\label{tab:diccionarioCompra} \\ \hline
+\textbf{Nombre:} & Compra \\ \hline
+\textbf{Descripción:} & 
+Transacción en la que un cliente adquiere uno o más contenidos mediante pago. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+fecha\_y\_hora & Marca temporal exacta de la compra.  
+Tipo: \textit{timestamp}. \\ \hline
+\end{longtable}
+
+% ==== Entidad DESCARGA ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Descarga}
+\label{tab:diccionarioDescarga} \\ \hline
+\textbf{Nombre:} & Descarga \\ \hline
+\textbf{Descripción:} & 
+Registro histórico de cada vez que un cliente descarga un contenido que posee. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+fecha\_y\_hora & Fecha y hora en que se efectuó la descarga.  
+Tipo: \textit{timestamp}. \\ \hline
+\end{longtable}
+
+% ==== Entidad VALORACION ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Valoración}
+\label{tab:diccionarioValoracion} \\ \hline
+\textbf{Nombre:} & Valoración \\ \hline
+\textbf{Descripción:} & 
+Opinión numérica (1–10) que un cliente otorga a un contenido previamente descargado. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+puntuacion & Nota asignada (1–10).  
+Tipo: \textit{integer}. \\ \hline
+fecha      & Fecha en que se emitió la valoración.  
+Tipo: \textit{timestamp}. \\ \hline
+\end{longtable}
+
+% ==== Entidad RANKING ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Ranking}
+\label{tab:diccionarioRanking} \\ \hline
+\textbf{Nombre:} & Ranking \\ \hline
+\textbf{Descripción:} & 
+ Identifica una lista ordenada (por descargas o por puntuación) calculada periódicamente. \\ \hline
+\endfirsthead
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ \hline
+\endhead
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+fecha              & Fecha de generación del ranking.  
+Tipo: \textit{date}. \\ \hline
+tipo               & Criterio empleado (``descargas'' o ``puntuación'').  
+Tipo: \textit{string}. \\ \hline
+posicion\_actual   & Posición global del contenido dentro del top 10.  
+Tipo: \textit{integer}. \\ \hline
+posicion\_anterior & Posición de la semana anterior (si existía).  
+Tipo: \textit{integer}. \\ \hline
+\end{longtable}
+
+\newpage
+% ==== Entidad RANKING_CONTENIDO ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Ranking\_Contenido}
+\label{tab:diccionarioRankingContenido} \\ \hline
+\textbf{Nombre:} & Ranking\_Contenido \\ \hline
+\textbf{Descripción:} & 
+Vinculan cada contenido con su posición en un \textbf{Ranking}.  No posee atributos adicionales. \\ \hline
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\multicolumn{2}{|p{13.5cm}|}{Sin atributos propios.} \\ \hline
+\end{longtable}
+
+% ==== Entidad RANKING_CLIENTE ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Ranking\_Cliente}
+\label{tab:diccionarioRankingCliente} \\ \hline
+\textbf{Nombre:} & Ranking\_Cliente \\ \hline
+\textbf{Descripción:} & 
+ Vincula cada cliente con su posición en un ranking de actividad.  No posee atributos adicionales. \\ \hline
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\multicolumn{2}{|p{13.5cm}|}{Sin atributos propios.} \\ \hline
+\end{longtable}

@@ -1,0 +1,36 @@
+% ==== Entidad REGALO ====
+\renewcommand{\arraystretch}{1.3}
+\begin{longtable}{|p{3.5cm}|p{10cm}|}
+\caption{Diccionario de la entidad Regalo}
+\label{tab:diccionarioRegalo} \\ 
+\hline
+\textbf{Nombre:} & Regalo \\
+\hline
+\textbf{Descripción:} & 
+Representa la transferencia de un \textbf{Contenido} desde un
+\textbf{Cliente} emisor hacia otro cliente receptor como obsequio
+dentro de \textbf{QuickContentMedia}.  Guarda la fecha del envío y el
+estado (\textit{abierto}/\textit{pendiente}). \\ \hline
+\endfirsthead
+
+\multicolumn{2}{c}{\textbf{Continuación desde la página anterior}} \\ 
+\endhead
+
+\hline \multicolumn{2}{r}{{Continúa en la siguiente página}} \\ 
+\endfoot
+
+\hline
+\endlastfoot
+
+\multicolumn{2}{|p{13.5cm}|}{\textbf{ATRIBUTOS}} \\ \hline
+\textbf{Atributo} & \textbf{Descripción} \\ \hline
+fecha        & Fecha en la que el emisor envía el contenido. \\ \hline
+abierto      & Bandera lógica que indica si el receptor ya abrió el regalo
+(1 = abierto, 0 = pendiente). \\ \hline
+
+\multicolumn{2}{|p{13.5cm}|}{\textbf{RELACIONES}} \\ \hline
+\textbf{Relación} & \textbf{Descripción} \\ \hline
+emisor\,(N\,:\,1)   & Un cliente \textbf{(emisor)} puede enviar muchos regalos. \\ \hline
+receptor\,(N\,:\,1) & Un cliente \textbf{(receptor)} puede recibir muchos regalos. \\ \hline
+contiene\,(N\,:\,1) & Cada regalo \emph{contiene} exactamente un \textbf{Contenido}.\\ \hline
+\end{longtable}

@@ -1,0 +1,34 @@
+\section{Mantenimiento}
+En la tabla \ref{tab:mantenimiento} se presenta la planificación de las
+actividades de mantenimiento correctivo, adaptativo y preventivo para
+el sistema \textbf{QuickContentMedia} tras su entrega formal.  
+El objetivo es garantizar la continuidad operativa, la corrección de
+incidencias y la incorporación controlada de mejoras menores.
+
+\vspace{0.5cm}
+\small
+\begin{table}[H]
+\centering
+\caption{Actividades de mantenimiento}
+\label{tab:mantenimiento}
+\begin{tabular}{|c|p{4.2cm}|p{3cm}|p{3cm}|p{4.2cm}|}
+\hline
+\textbf{Fase} & \textbf{Actividad} & \textbf{Frecuencia / Duración} & \textbf{Responsables} & \textbf{Resultado Esperado} \\ \hline
+\textbf{M1} & Traslado a fase de mantenimiento \newline (revisión de artefactos y entorno) & 1 día & Líder de Proyecto \newline Programador & Ambiente de soporte configurado y documentación revisada \\ \hline
+\textbf{M2} & Monitoreo preventivo de infraestructura \newline (CPU, RAM, base de datos, logs) & Diario & Programador & Alertas generadas y métricas almacenadas \\ \hline
+\textbf{M3} & Registro de incidencias & Continuo & Tester Junior \newline Cliente & Incidencias clasificadas (prioridad, impacto) \\ \hline
+\textbf{M4} & Corrección de bugs críticos & $\leq$ 48 h desde el reporte & Programador \newline Tester Senior & Versión parcheada \\ \hline
+\textbf{M5} & Actualizaciones menores / mejoras \newline (UI, rendimiento) & Mensual & Programador \newline Tester Senior & Versión menor liberada y nota de cambios enviada \\ \hline
+\textbf{M6} & Copia de seguridad verificada & Semanal & Tester Junior & Backup válido almacenado en repositorio seguro \\ \hline
+\textbf{M7} & Reunión de revisión con el cliente & Trimestral (0,5 día) & Líder de Proyecto \newline Cliente & Acta de revisión \\ \hline
+\textbf{M8} & Informe anual de mantenimiento & 1 día/año & Líder de Proyecto & Documento con métricas, costos y recomendaciones \\ \hline
+\end{tabular}
+\end{table}
+\normalsize
+
+\paragraph{Criterios de cierre de mantenimiento}
+\begin{enumerate}[label=\alph*)]
+  \item No existan incidencias abiertas de severidad media o alta.
+  \item El sistema mantenga la disponibilidad \(\ge 99{,}5\%\) según monitoreo.
+  \item Se haya entregado el informe anual y aprobado por el cliente.
+\end{enumerate}
